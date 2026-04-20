@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
   <style>
@@ -50,9 +50,9 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', 'Syne', sans-serif;
+      font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* ── noise + grid ── */
@@ -212,8 +212,10 @@
       z-index: 2;
       max-width: 960px;
       margin: 0 auto;
-      padding: 100px 24px 80px;
-    }
+      padding: 110px 28px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
 
     /* ── fade animations ── */
     .fade-up {
@@ -232,7 +234,7 @@
       background: linear-gradient(135deg, rgba(12, 18, 32, 0.9) 0%, rgba(10, 16, 28, 0.9) 100%);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 32px 36px;
+      padding: 36px 42px;
       position: relative;
       overflow: hidden;
       transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
@@ -301,12 +303,12 @@
 
     /* ── section title ── */
     .sec-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(20px, 3vw, 26px);
       font-weight: 700;
       color: white;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
     }
 
     /* ── tag chips ── */
@@ -521,53 +523,141 @@
       background: linear-gradient(90deg, var(--accent4), #fbbf24);
     }
 
-    /* ── profile photo ── */
-    .photo-wrap {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 2px solid var(--border3);
-      overflow: hidden;
+    /* ── profile photo — retro ID card ── */
+    .photo-outer {
       position: relative;
       flex-shrink: 0;
+      width: 130px;
+    }
+
+    .photo-wrap {
+      width: 130px;
+      height: 155px;
+      border-radius: 4px;
+      border: 2px solid var(--accent);
+      overflow: hidden;
+      position: relative;
       background: var(--surface2);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.15),
+        4px 4px 0px rgba(56, 189, 248, 0.25),
+        inset 0 0 40px rgba(0,0,0,0.3);
+      transition: box-shadow 0.3s, transform 0.3s;
     }
 
     .photo-wrap:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+      box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.3),
+        6px 6px 0px rgba(56, 189, 248, 0.4),
+        inset 0 0 40px rgba(0,0,0,0.2);
+      transform: translate(-2px, -2px);
+    }
+
+    /* scanline overlay */
+    .photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.18) 2px,
+        rgba(0, 0, 0, 0.18) 4px
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* CRT vignette */
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.45) 100%);
+      z-index: 3;
+      pointer-events: none;
     }
 
     .photo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top center;
+      filter: contrast(1.05) saturate(0.85);
+      transition: filter 0.3s;
+    }
+
+    .photo-wrap:hover img {
+      filter: contrast(1.1) saturate(1.0);
+    }
+
+    /* pixel corner brackets */
+    .photo-corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      z-index: 4;
+    }
+    .photo-corner.tl { top: -3px; left: -3px; border-top: 2px solid var(--accent3); border-left: 2px solid var(--accent3); }
+    .photo-corner.tr { top: -3px; right: -3px; border-top: 2px solid var(--accent3); border-right: 2px solid var(--accent3); }
+    .photo-corner.bl { bottom: -3px; left: -3px; border-bottom: 2px solid var(--accent3); border-left: 2px solid var(--accent3); }
+    .photo-corner.br { bottom: -3px; right: -3px; border-bottom: 2px solid var(--accent3); border-right: 2px solid var(--accent3); }
+
+    /* retro ID label below photo */
+    .photo-label {
+      margin-top: 8px;
+      padding: 5px 0;
+      border: 1px solid var(--border2);
+      border-radius: 3px;
+      background: rgba(56, 189, 248, 0.04);
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-label::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+
+    /* glitch animation on hover */
+    @keyframes glitch {
+      0%, 100% { clip-path: none; transform: none; }
+      20% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translateX(-3px); }
+      40% { clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%); transform: translateX(3px); }
+      60% { clip-path: polygon(0 40%, 100% 40%, 100% 50%, 0 50%); transform: translateX(-2px); }
+      80% { clip-path: none; transform: none; }
+    }
+    .photo-wrap:hover .photo-glitch {
+      animation: glitch 0.4s steps(1) forwards;
+    }
+    .photo-glitch {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(56,189,248,0.08), transparent);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .photo-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      animation: ring-pulse 3s ease-in-out infinite;
+      display: none;
     }
 
     @keyframes ring-pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.4;
-      }
-
-      50% {
-        transform: scale(1.06);
-        opacity: 0.1;
-      }
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.06); opacity: 0.1; }
     }
 
     /* ── typing cursor ── */
@@ -660,15 +750,15 @@
     }
 
     .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 28px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 30px;
       font-weight: 800;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .stat-label {
@@ -704,15 +794,15 @@
 
     /* ── section divider ── */
     .mb-6 {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .mb-8 {
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .mb-10 {
-      margin-bottom: 40px;
+      margin-bottom: 52px;
     }
 
     /* ── flex utils ── */
@@ -953,7 +1043,7 @@
   <div class="main-wrap">
 
     <!-- ═══════════════ HERO / HEADER ═══════════════ -->
-    <header class="fade-up card mb-6" id="about" style="padding: 36px 40px;">
+    <header class="fade-up card mb-6" id="about" style="padding: 44px 44px;">
       <div class="term-dots">
         <span class="r"></span><span class="y"></span><span class="g"></span>
         <span
@@ -963,23 +1053,29 @@
       <div class="flex flex-col gap-6" style="gap:28px;">
         <!-- Top row: photo + info -->
         <div class="flex gap-6 items-start" style="flex-wrap:wrap;">
-          <!-- Photo -->
-          <div style="position:relative; flex-shrink:0;">
+          <!-- Photo — Retro ID Card -->
+          <div class="photo-outer">
             <div class="photo-wrap">
+              <!-- scanline + vignette already done via CSS ::before/::after -->
+              <div class="photo-glitch"></div>
               <img src="profile.jpg" alt="Muhammad Adib Aulia Hanif" id="profile-img"
                 onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';" />
               <div id="avatar-fallback"
-                style="display:flex; flex-direction:column; align-items:center; gap:4px; padding:10px;">
-                <svg style="width:36px;height:36px;color:var(--muted);" xmlns="http://www.w3.org/2000/svg" fill="none"
+                style="display:none; flex-direction:column; align-items:center; gap:4px; padding:10px; z-index:5;">
+                <svg style="width:40px;height:40px;color:var(--muted);" xmlns="http://www.w3.org/2000/svg" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                 </svg>
-                <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);">M.A.A
-                  Hanif</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:0.1em;">NO_IMAGE</span>
               </div>
+              <!-- pixel corners -->
+              <div class="photo-corner tl"></div>
+              <div class="photo-corner tr"></div>
+              <div class="photo-corner bl"></div>
+              <div class="photo-corner br"></div>
             </div>
-            <div class="photo-ring"></div>
+            <div class="photo-label">ID_CARD · DEV · 2026</div>
           </div>
 
           <!-- Info -->
@@ -989,7 +1085,7 @@
               &lt;full-stack-developer /&gt;
             </div>
             <h1
-              style="font-family:'Syne',sans-serif; font-size:clamp(24px,5vw,38px); font-weight:800; color:white; line-height:1.05; letter-spacing:-0.03em;"
+              style="font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(26px,5vw,42px); font-weight:800; color:white; line-height:1.1; letter-spacing:-0.02em;"
               class="typing" id="name-heading">
               Muhammad Adib Aulia Hanif
             </h1>
@@ -1672,7 +1768,7 @@
     <section class="fade-up card" style="transition-delay:0.3s; text-align:center; padding:48px 36px;">
       <div class="sec-label" style="justify-content:center;"><span>// open.to.work</span></div>
       <h2
-        style="font-family:'Syne',sans-serif; font-size:clamp(22px,4vw,32px); font-weight:800; color:white; letter-spacing:-0.02em; margin-bottom:14px;">
+        style="font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(24px,4vw,36px); font-weight:800; color:white; letter-spacing:-0.01em; margin-bottom:16px;">
         Let's Build Something <span
           style="background:linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Amazing</span>
       </h2>
