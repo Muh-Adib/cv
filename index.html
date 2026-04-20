@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muhammad Adib Aulia Hanif — Full-Stack Developer</title>
-  <meta name="description" content="Full-Stack Web Developer & Graphic Designer based in Yogyakarta, Indonesia. Experienced in Next.js, Laravel, React, and full deployment pipelines." />
+  <meta name="description"
+    content="Full-Stack Web Developer & Graphic Designer based in Yogyakarta, Indonesia. Experienced in Next.js, Laravel, React, and full deployment pipelines." />
   <meta property="og:title" content="Muhammad Adib Aulia Hanif — Full-Stack Developer" />
-  <meta property="og:description" content="Full-Stack Web Developer & Graphic Designer based in Yogyakarta, building production-grade digital infrastructure." />
+  <meta property="og:description"
+    content="Full-Stack Web Developer & Graphic Designer based in Yogyakarta, building production-grade digital infrastructure." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
 
   <style>
     :root {
@@ -28,13 +33,19 @@
       --text: #e2e8f0;
       --muted: #64748b;
       --muted2: #94a3b8;
-      --glow: rgba(56,189,248,0.12);
-      --glow2: rgba(129,140,248,0.1);
+      --glow: rgba(56, 189, 248, 0.12);
+      --glow2: rgba(129, 140, 248, 0.1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -53,13 +64,14 @@
       pointer-events: none;
       z-index: 0;
     }
+
     body::after {
       content: '';
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(to right, rgba(26,40,64,0.25) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(26,40,64,0.25) 1px, transparent 1px);
+        linear-gradient(to right, rgba(26, 40, 64, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26, 40, 64, 0.25) 1px, transparent 1px);
       background-size: 50px 50px;
       pointer-events: none;
       z-index: 0;
@@ -74,17 +86,49 @@
       z-index: 0;
       animation: drift 10s ease-in-out infinite alternate;
     }
-    .orb-1 { width: 600px; height: 600px; background: rgba(56,189,248,0.05); top: -150px; right: -150px; }
-    .orb-2 { width: 500px; height: 500px; background: rgba(129,140,248,0.05); bottom: 10%; left: -120px; animation-delay: -4s; }
-    .orb-3 { width: 350px; height: 350px; background: rgba(52,211,153,0.04); bottom: -50px; right: 25%; animation-delay: -7s; }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: rgba(56, 189, 248, 0.05);
+      top: -150px;
+      right: -150px;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: rgba(129, 140, 248, 0.05);
+      bottom: 10%;
+      left: -120px;
+      animation-delay: -4s;
+    }
+
+    .orb-3 {
+      width: 350px;
+      height: 350px;
+      background: rgba(52, 211, 153, 0.04);
+      bottom: -50px;
+      right: 25%;
+      animation-delay: -7s;
+    }
+
     @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 20px) scale(1.08); }
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(30px, 20px) scale(1.08);
+      }
     }
 
     /* ── scanline ── */
     .scanline {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity: 0.3;
@@ -92,14 +136,24 @@
       z-index: 999;
       pointer-events: none;
     }
-    @keyframes scan { from { top: 0; } to { top: 100vh; } }
+
+    @keyframes scan {
+      from {
+        top: 0;
+      }
+
+      to {
+        top: 100vh;
+      }
+    }
 
     /* ── cursor glow ── */
     #cursor-glow {
       position: fixed;
-      width: 400px; height: 400px;
+      width: 400px;
+      height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 1;
@@ -109,14 +163,17 @@
     /* ── navbar ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       justify-content: center;
       padding: 16px 24px;
     }
+
     .nav-inner {
-      background: rgba(6,10,18,0.8);
+      background: rgba(6, 10, 18, 0.8);
       backdrop-filter: blur(20px);
       border: 1px solid var(--border);
       border-radius: 40px;
@@ -125,6 +182,7 @@
       gap: 8px;
       align-items: center;
     }
+
     .nav-link {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -135,11 +193,18 @@
       transition: all 0.25s;
       letter-spacing: 0.05em;
     }
+
     .nav-link:hover {
       color: var(--accent);
-      background: rgba(56,189,248,0.08);
+      background: rgba(56, 189, 248, 0.08);
     }
-    .nav-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border2); }
+
+    .nav-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--border2);
+    }
 
     /* ── main wrapper ── */
     .main-wrap {
@@ -156,11 +221,15 @@
       transform: translateY(32px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* ── section cards ── */
     .card {
-      background: linear-gradient(135deg, rgba(12,18,32,0.9) 0%, rgba(10,16,28,0.9) 100%);
+      background: linear-gradient(135deg, rgba(12, 18, 32, 0.9) 0%, rgba(10, 16, 28, 0.9) 100%);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 32px 36px;
@@ -169,27 +238,37 @@
       transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
       backdrop-filter: blur(10px);
     }
+
     .card:hover {
       border-color: var(--border3);
-      box-shadow: 0 0 60px rgba(56,189,248,0.06), 0 8px 32px rgba(0,0,0,0.4);
+      box-shadow: 0 0 60px rgba(56, 189, 248, 0.06), 0 8px 32px rgba(0, 0, 0, 0.4);
       transform: translateY(-2px);
     }
+
     .card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(56,189,248,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
       opacity: 0;
       transition: opacity 0.4s;
     }
-    .card:hover::before { opacity: 1; }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
     .card::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(129,140,248,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.2), transparent);
     }
 
     /* ── section label ── */
@@ -204,15 +283,19 @@
       align-items: center;
       gap: 12px;
     }
+
     .sec-label::before {
       content: '';
-      width: 20px; height: 1px;
+      width: 20px;
+      height: 1px;
       background: var(--accent);
       opacity: 0.6;
     }
+
     .sec-label::after {
       content: '';
-      flex: 1; height: 1px;
+      flex: 1;
+      height: 1px;
       background: linear-gradient(90deg, var(--border2), transparent);
     }
 
@@ -236,34 +319,43 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       border: 1px solid var(--border2);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.02);
       color: var(--muted2);
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
       cursor: default;
     }
+
     .chip:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(56,189,248,0.08);
+      background: rgba(56, 189, 248, 0.08);
       transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 4px 16px rgba(56,189,248,0.12);
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.12);
     }
-    .chip svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .chip svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
 
     /* ── project card ── */
     .proj-card {
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 22px 26px;
-      background: rgba(10,16,28,0.6);
+      background: rgba(10, 16, 28, 0.6);
       transition: all 0.35s;
       position: relative;
       overflow: hidden;
     }
+
     .proj-card::before {
       content: '';
       position: absolute;
-      left: 0; top: 0; bottom: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
       width: 3px;
       background: linear-gradient(180deg, var(--accent), var(--accent2));
       transform: scaleY(0);
@@ -271,24 +363,30 @@
       transition: transform 0.35s;
       border-radius: 0 2px 2px 0;
     }
+
     .proj-card:hover {
       border-color: var(--border3);
       transform: translateX(6px);
-      box-shadow: -4px 0 30px rgba(56,189,248,0.08);
+      box-shadow: -4px 0 30px rgba(56, 189, 248, 0.08);
     }
-    .proj-card:hover::before { transform: scaleY(1); }
+
+    .proj-card:hover::before {
+      transform: scaleY(1);
+    }
 
     /* ── on progress card ── */
     .proj-card.in-progress {
-      border-color: rgba(251,146,60,0.3);
-      background: rgba(251,146,60,0.03);
+      border-color: rgba(251, 146, 60, 0.3);
+      background: rgba(251, 146, 60, 0.03);
     }
+
     .proj-card.in-progress::before {
       background: linear-gradient(180deg, var(--accent4), #ef4444);
     }
+
     .proj-card.in-progress:hover {
-      border-color: rgba(251,146,60,0.5);
-      box-shadow: -4px 0 30px rgba(251,146,60,0.1);
+      border-color: rgba(251, 146, 60, 0.5);
+      box-shadow: -4px 0 30px rgba(251, 146, 60, 0.1);
     }
 
     /* ── status badge ── */
@@ -302,37 +400,84 @@
       font-size: 10px;
       letter-spacing: 0.08em;
     }
+
     .badge-progress {
-      background: rgba(251,146,60,0.12);
-      border: 1px solid rgba(251,146,60,0.3);
+      background: rgba(251, 146, 60, 0.12);
+      border: 1px solid rgba(251, 146, 60, 0.3);
       color: var(--accent4);
     }
+
     .badge-live {
-      background: rgba(52,211,153,0.1);
-      border: 1px solid rgba(52,211,153,0.25);
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
       color: var(--accent3);
     }
+
     .badge-pulse {
-      width: 6px; height: 6px; border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       animation: pulse-dot 1.5s ease-in-out infinite;
     }
-    .badge-progress .badge-pulse { background: var(--accent4); box-shadow: 0 0 6px var(--accent4); }
-    .badge-live .badge-pulse { background: var(--accent3); box-shadow: 0 0 6px var(--accent3); }
+
+    .badge-progress .badge-pulse {
+      background: var(--accent4);
+      box-shadow: 0 0 6px var(--accent4);
+    }
+
+    .badge-live .badge-pulse {
+      background: var(--accent3);
+      box-shadow: 0 0 6px var(--accent3);
+    }
+
     @keyframes pulse-dot {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
     }
 
     /* ── terminal dots ── */
-    .term-dots { display: flex; gap: 7px; margin-bottom: 14px; }
-    .term-dots span { width: 11px; height: 11px; border-radius: 50%; }
-    .term-dots .r { background: #ff5f57; }
-    .term-dots .y { background: #febc2e; }
-    .term-dots .g { background: #28c840; }
+    .term-dots {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .term-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .term-dots .r {
+      background: #ff5f57;
+    }
+
+    .term-dots .y {
+      background: #febc2e;
+    }
+
+    .term-dots .g {
+      background: #28c840;
+    }
 
     /* ── skill bar ── */
-    .skill-row { margin-bottom: 14px; }
-    .skill-row:last-child { margin-bottom: 0; }
+    .skill-row {
+      margin-bottom: 14px;
+    }
+
+    .skill-row:last-child {
+      margin-bottom: 0;
+    }
+
     .skill-label {
       display: flex;
       justify-content: space-between;
@@ -341,53 +486,88 @@
       color: var(--muted2);
       margin-bottom: 6px;
     }
-    .skill-label span:last-child { color: var(--accent); }
+
+    .skill-label span:last-child {
+      color: var(--accent);
+    }
+
     .skill-bar-bg {
       height: 4px;
       background: var(--border);
       border-radius: 4px;
       overflow: hidden;
     }
+
     .skill-bar-fill {
       height: 100%;
       border-radius: 4px;
       width: 0;
-      transition: width 1.6s cubic-bezier(.22,1,.36,1);
+      transition: width 1.6s cubic-bezier(.22, 1, .36, 1);
     }
-    .sf-1 { background: linear-gradient(90deg, var(--accent), #60e0ff); }
-    .sf-2 { background: linear-gradient(90deg, var(--accent2), #a5b4fc); }
-    .sf-3 { background: linear-gradient(90deg, var(--accent3), #6ee7b7); }
-    .sf-4 { background: linear-gradient(90deg, var(--accent4), #fbbf24); }
+
+    .sf-1 {
+      background: linear-gradient(90deg, var(--accent), #60e0ff);
+    }
+
+    .sf-2 {
+      background: linear-gradient(90deg, var(--accent2), #a5b4fc);
+    }
+
+    .sf-3 {
+      background: linear-gradient(90deg, var(--accent3), #6ee7b7);
+    }
+
+    .sf-4 {
+      background: linear-gradient(90deg, var(--accent4), #fbbf24);
+    }
 
     /* ── profile photo ── */
     .photo-wrap {
-      width: 110px; height: 110px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       border: 2px solid var(--border3);
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
       background: var(--surface2);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     .photo-wrap:hover {
       border-color: var(--accent);
-      box-shadow: 0 0 30px rgba(56,189,248,0.2);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
     }
+
     .photo-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+
     .photo-ring {
       position: absolute;
       inset: -6px;
       border-radius: 50%;
-      border: 1px solid rgba(56,189,248,0.2);
+      border: 1px solid rgba(56, 189, 248, 0.2);
       animation: ring-pulse 3s ease-in-out infinite;
     }
+
     @keyframes ring-pulse {
-      0%,100% { transform: scale(1); opacity: 0.4; }
-      50% { transform: scale(1.06); opacity: 0.1; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: scale(1.06);
+        opacity: 0.1;
+      }
     }
 
     /* ── typing cursor ── */
@@ -396,45 +576,66 @@
       animation: blink 1s step-end infinite;
       color: var(--accent);
     }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0
+      }
+    }
 
     /* ── timeline ── */
     .tl-dot {
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 10px var(--accent);
       flex-shrink: 0;
       margin-top: 5px;
     }
+
     .tl-line {
-      width: 1px; flex: 1;
+      width: 1px;
+      flex: 1;
       background: linear-gradient(180deg, var(--accent), transparent);
       margin-top: 8px;
     }
 
     /* ── contact buttons ── */
     .contact-btn {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 9px 18px;
       border-radius: 10px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       border: 1px solid var(--border2);
       color: var(--muted2);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.02);
       text-decoration: none;
       transition: all 0.3s;
       letter-spacing: 0.03em;
     }
+
     .contact-btn:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(56,189,248,0.08);
+      background: rgba(56, 189, 248, 0.08);
       transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(56,189,248,0.1);
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.1);
     }
-    .contact-btn svg { width: 14px; height: 14px; }
+
+    .contact-btn svg {
+      width: 14px;
+      height: 14px;
+    }
 
     /* ── stat counter ── */
     .stats-grid {
@@ -443,18 +644,21 @@
       gap: 16px;
       margin-top: 28px;
     }
+
     .stat-box {
-      background: rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 16px;
       text-align: center;
       transition: all 0.3s;
     }
+
     .stat-box:hover {
       border-color: var(--border3);
-      background: rgba(56,189,248,0.04);
+      background: rgba(56, 189, 248, 0.04);
     }
+
     .stat-num {
       font-family: 'Syne', sans-serif;
       font-size: 28px;
@@ -466,6 +670,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
+
     .stat-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
@@ -481,36 +686,79 @@
       gap: 8px;
       padding: 6px 14px;
       border-radius: 20px;
-      background: rgba(52,211,153,0.08);
-      border: 1px solid rgba(52,211,153,0.2);
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.2);
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       color: var(--accent3);
     }
+
     .avail-dot {
-      width: 8px; height: 8px; border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: var(--accent3);
       box-shadow: 0 0 8px var(--accent3);
       animation: pulse-dot 1.5s ease-in-out infinite;
     }
 
     /* ── section divider ── */
-    .mb-6 { margin-bottom: 24px; }
-    .mb-8 { margin-bottom: 32px; }
-    .mb-10 { margin-bottom: 40px; }
+    .mb-6 {
+      margin-bottom: 24px;
+    }
+
+    .mb-8 {
+      margin-bottom: 32px;
+    }
+
+    .mb-10 {
+      margin-bottom: 40px;
+    }
 
     /* ── flex utils ── */
-    .flex { display: flex; }
-    .flex-wrap { flex-wrap: wrap; }
-    .flex-col { flex-direction: column; }
-    .items-start { align-items: flex-start; }
-    .items-center { align-items: center; }
-    .justify-between { justify-content: space-between; }
-    .gap-2 { gap: 8px; }
-    .gap-3 { gap: 12px; }
-    .gap-4 { gap: 16px; }
-    .gap-6 { gap: 24px; }
-    .flex-1 { flex: 1; }
+    .flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .items-start {
+      align-items: flex-start;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .gap-2 {
+      gap: 8px;
+    }
+
+    .gap-3 {
+      gap: 12px;
+    }
+
+    .gap-4 {
+      gap: 16px;
+    }
+
+    .gap-6 {
+      gap: 24px;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
 
     /* ── tech category chip ── */
     .cat-label {
@@ -524,6 +772,7 @@
       align-items: center;
       gap: 8px;
     }
+
     .cat-label::after {
       content: '';
       height: 1px;
@@ -546,20 +795,43 @@
       transition: all 0.25s;
       text-decoration: none;
     }
+
     .site-preview:hover {
       color: var(--accent);
       border-color: var(--accent);
-      background: rgba(56,189,248,0.06);
+      background: rgba(56, 189, 248, 0.06);
     }
 
     /* ── highlight text ── */
-    .hl-accent { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
-    .hl-accent2 { color: var(--accent2); }
-    .hl-accent3 { color: var(--accent3); }
-    .hl-accent4 { color: var(--accent4); }
-    .text-white { color: white; }
-    .text-muted { color: var(--muted); }
-    .text-muted2 { color: var(--muted2); }
+    .hl-accent {
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9em;
+    }
+
+    .hl-accent2 {
+      color: var(--accent2);
+    }
+
+    .hl-accent3 {
+      color: var(--accent3);
+    }
+
+    .hl-accent4 {
+      color: var(--accent4);
+    }
+
+    .text-white {
+      color: white;
+    }
+
+    .text-muted {
+      color: var(--muted);
+    }
+
+    .text-muted2 {
+      color: var(--muted2);
+    }
 
     /* ── footer ── */
     footer {
@@ -570,12 +842,17 @@
       font-size: 11px;
       color: var(--muted);
     }
-    footer a { color: var(--accent); text-decoration: none; }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
     /* ── scroll indicator ── */
     .scroll-indicator {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       z-index: 101;
@@ -584,662 +861,913 @@
 
     /* ── responsive ── */
     @media (max-width: 640px) {
-      .main-wrap { padding: 80px 16px 60px; }
-      .card { padding: 22px 20px; }
-      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .stat-num { font-size: 22px; }
-      nav { padding: 12px 16px; }
-      .nav-inner { padding: 8px 16px; gap: 4px; }
-      .nav-link { padding: 5px 10px; font-size: 10px; }
-      .nav-dot { display: none; }
+      .main-wrap {
+        padding: 80px 16px 60px;
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .stat-num {
+        font-size: 22px;
+      }
+
+      nav {
+        padding: 12px 16px;
+      }
+
+      .nav-inner {
+        padding: 8px 16px;
+        gap: 4px;
+      }
+
+      .nav-link {
+        padding: 5px 10px;
+        font-size: 10px;
+      }
+
+      .nav-dot {
+        display: none;
+      }
     }
 
     /* ── print ── */
     @media print {
-      body::before, body::after, .orb, .scanline, #cursor-glow, nav, .scroll-indicator { display: none !important; }
-      .fade-up { opacity: 1; transform: none; }
-      .main-wrap { padding: 24px; }
-      .card { break-inside: avoid; }
+
+      body::before,
+      body::after,
+      .orb,
+      .scanline,
+      #cursor-glow,
+      nav,
+      .scroll-indicator {
+        display: none !important;
+      }
+
+      .fade-up {
+        opacity: 1;
+        transform: none;
+      }
+
+      .main-wrap {
+        padding: 24px;
+      }
+
+      .card {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<div class="scroll-indicator" id="scroll-bar"></div>
-<div class="scanline"></div>
-<div id="cursor-glow"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
+  <div class="scroll-indicator" id="scroll-bar"></div>
+  <div class="scanline"></div>
+  <div id="cursor-glow"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
-<!-- ── NAVBAR ── -->
-<nav>
-  <div class="nav-inner">
-    <a href="#about" class="nav-link">about</a>
-    <div class="nav-dot"></div>
-    <a href="#stack" class="nav-link">stack</a>
-    <div class="nav-dot"></div>
-    <a href="#experience" class="nav-link">experience</a>
-    <div class="nav-dot"></div>
-    <a href="#projects" class="nav-link">projects</a>
-    <div class="nav-dot"></div>
-    <a href="#contact" class="nav-link">contact</a>
-  </div>
-</nav>
-
-<div class="main-wrap">
-
-  <!-- ═══════════════ HERO / HEADER ═══════════════ -->
-  <header class="fade-up card mb-6" id="about" style="padding: 36px 40px;">
-    <div class="term-dots">
-      <span class="r"></span><span class="y"></span><span class="g"></span>
-      <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-left:6px;">~/portfolio/adib.sh</span>
+  <!-- ── NAVBAR ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#about" class="nav-link">about</a>
+      <div class="nav-dot"></div>
+      <a href="#stack" class="nav-link">stack</a>
+      <div class="nav-dot"></div>
+      <a href="#experience" class="nav-link">experience</a>
+      <div class="nav-dot"></div>
+      <a href="#projects" class="nav-link">projects</a>
+      <div class="nav-dot"></div>
+      <a href="#contact" class="nav-link">contact</a>
     </div>
+  </nav>
 
-    <div class="flex flex-col gap-6" style="gap:28px;">
-      <!-- Top row: photo + info -->
-      <div class="flex gap-6 items-start" style="flex-wrap:wrap;">
-        <!-- Photo -->
-        <div style="position:relative; flex-shrink:0;">
-          <div class="photo-wrap">
-            <img src="profile.jpg" alt="Muhammad Adib Aulia Hanif" id="profile-img"
-              onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';" />
-            <div id="avatar-fallback" style="display:flex; flex-direction:column; align-items:center; gap:4px; padding:10px;">
-              <svg style="width:36px;height:36px;color:var(--muted);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
-              </svg>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);">M.A.A Hanif</span>
-            </div>
-          </div>
-          <div class="photo-ring"></div>
-        </div>
+  <div class="main-wrap">
 
-        <!-- Info -->
-        <div class="flex-1" style="min-width:200px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); margin-bottom:6px; letter-spacing:0.1em;">
-            &lt;full-stack-developer /&gt;
-          </div>
-          <h1 style="font-family:'Syne',sans-serif; font-size:clamp(24px,5vw,38px); font-weight:800; color:white; line-height:1.05; letter-spacing:-0.03em;" class="typing" id="name-heading">
-            Muhammad Adib Aulia Hanif
-          </h1>
-          <p style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent2); margin-top:10px; letter-spacing:0.02em;">
-            Full-Stack Web Developer &amp; Creative Technologist
-          </p>
-          <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-top:4px;">
-            // Next.js · Laravel · React · Node.js · DevOps
-          </p>
-          <div style="margin-top:12px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <div class="avail-badge">
-              <div class="avail-dot"></div>
-              Available for Projects
-            </div>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted);">📍 Yogyakarta, Indonesia</span>
-          </div>
-        </div>
+    <!-- ═══════════════ HERO / HEADER ═══════════════ -->
+    <header class="fade-up card mb-6" id="about" style="padding: 36px 40px;">
+      <div class="term-dots">
+        <span class="r"></span><span class="y"></span><span class="g"></span>
+        <span
+          style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--muted); margin-left:6px;">~/portfolio/adib.sh</span>
       </div>
 
-      <!-- Stats row -->
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years Exp.</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Projects</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Clients</div>
-        </div>
-      </div>
-
-      <!-- Contact buttons -->
-      <div id="contact" class="flex flex-wrap gap-2">
-        <a href="mailto:adwk.project@gmail.com" class="contact-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          adwk.project@gmail.com
-        </a>
-        <a href="https://wa.me/6282332357775" target="_blank" rel="noopener" class="contact-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          +62 823-3235-7775
-        </a>
-        <a href="https://github.com/Muh-Adib" target="_blank" rel="noopener" class="contact-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
-          github.com/Muh-Adib
-        </a>
-        <a href="https://linxit.id" target="_blank" rel="noopener" class="contact-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20"/><path d="M2 12h20"/></svg>
-          linxit.id
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ═══════════════ ABOUT ═══════════════ -->
-  <section class="fade-up card mb-6" style="transition-delay:0.05s;">
-    <div class="sec-label"><span>// about.md</span></div>
-    <p style="font-size:14px; line-height:2; color:var(--muted2);">
-      Full-Stack Web Developer lulusan <span class="text-white" style="font-weight:600;">Sistem Informasi AMIKOM Yogyakarta (2023)</span>, 
-      berpengalaman membangun infrastruktur digital skala produksi — dari sistem OTA real-time, 
-      platform marketplace kreator, hingga Programmatic SEO. Mahir dalam full deployment stack:
-      <span class="hl-accent">VPS → Git → CI/CD → Production</span>.
-    </p>
-    <p style="font-size:14px; line-height:2; color:var(--muted2); margin-top:14px;">
-      Memiliki kemampuan unik menyempurnakan kode AI-generated menjadi sistem yang bersih, maintainable, dan scalable — 
-      didukung latar belakang <span class="hl-accent2">desain visual</span> yang kuat. Passionate tentang membangun produk digital yang tidak hanya 
-      berfungsi dengan baik, tetapi juga indah secara visual.
-    </p>
-  </section>
-
-  <!-- ═══════════════ TECH STACK ═══════════════ -->
-  <section class="fade-up card mb-6" id="stack" style="transition-delay:0.1s;">
-    <div class="sec-label"><span>// tech.stack</span></div>
-
-    <!-- Frontend -->
-    <div class="mb-6">
-      <div class="cat-label">Frontend</div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z"/></svg>
-          Next.js
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.096-.278zm-.187 11.44c-.42.157-.87.314-1.35.458.142-.573.256-1.162.345-1.768.524.174 1.016.36 1.47.562-.152.251-.307.503-.465.748zm-3.66 2.56c-.285.28-.566.54-.842.78-.276-.24-.556-.5-.841-.78a27.04 27.04 0 0 1-.867-1.002c.28.017.563.027.852.027.285 0 .57-.01.853-.027a27.04 27.04 0 0 1-.156.002zm-6.41-3.308c-.48-.144-.93-.3-1.35-.458a23.107 23.107 0 0 1-.464-.748c.453-.2.944-.387 1.47-.562.088.607.2 1.195.344 1.768zm2.64-8.19c.28-.274.56-.534.841-.776.281.242.562.502.841.776a27.2 27.2 0 0 1 .155.002c-.283.016-.567.024-.856.024-.289 0-.573-.008-.858-.024.052-.001.077-.002.077-.002z"/></svg>
-          React.js
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>
-          TypeScript
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
-          Tailwind CSS
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm.072 4.79l.003-.001h-.001l.002.001.005.004h-.001l.006.008.003.004.007.007.003.006.007.008.002.005.007.009.003.007.006.011.004.007.006.013.003.007.006.014.003.01.005.015.003.01.004.018.002.01.003.02.002.011.002.022v.01l.001.026.001.012v.028l-.001.034v.014l-.002.037-.002.014-.003.04-.002.014-.004.041-.003.014-.005.043-.003.013-.006.044-.004.014-.007.046-.004.014-.008.048-.005.015-.009.05-.005.014-.01.052-.006.015-.011.054-.006.014-.012.057-.007.013-.013.059-.008.014-.013.061-.009.014-.015.063-.009.014-.015.066-.01.015-.017.068-.01.014-.017.07-.012.015-.018.073-.012.014-.019.075-.013.015-.02.078-.014.015-.021.08-.014.015-.022.083-.016.015-.023.086-.016.014-.024.088-.018.015-.025.091-.018.015-.026.094-.019.015-.027.096-.02.015-.028.1-.022.016-.03.102-.022.015-.03.105-.024.016-.031.108-.024.015-.033.11-.026.016-.033.114-.027.015-.035.116-.027.016-.036.12-.029.015-.037.122-.03.016-.038.125-.031.015-.04.128-.032.015-.04.131-.034.016-.042.134-.034.015-.043.137-.036.016-.044.14-.037.016-.045.142-.038.016-.046.145-.04.016-.047.148-.04.016-.049.15-.042.017-.05.154-.043.016-.05.157-.044.016-.052.16-.046.017-.053.163-.047.016-.053.165-.049.017-.055.169-.05.016-.055.171-.051.017-.057.175-.052.017-.058.177-.054.017-.058.18-.056.016-.06.183-.057.017-.06.186-.059.017-.062.19-.06.016-.062.191-.062.018-.063.195-.064.017-.064.198-.065.018-.065.2-.067.018-.066.204-.069.017-.067.206-.07.018-.068.21-.072.018-.069.213-.073.018-.07.216-.076.018-.07.218-.077.018-.072.222-.079.018-.072.225-.081.019-.074.228-.083.018-.074.231-.085.019-.075.235-.087.019-.076.237-.089.019-.077.241-.091.019-.078.244-.093.019-.079.247-.095.02-.08.251-.098.02-.08.253-.1.02-.082.257-.102.02-.082.26-.104.02-.083.263-.107.021-.084.267-.109.02-.085.27-.111.021-.086.273-.114.021-.086.277-.116.021-.088.28-.118.022-.088.284-.121.021-.09.287-.124.022-.09.29-.126.022-.091.294-.128.022-.092.297-.131.023-.093.3-.134.023-.093.304-.136.023-.095.308-.139.023-.095.311-.142.024-.097.314-.144.024-.097.318-.147.024-.098.322-.15.025-.099.325-.152.025-.1.328-.155.025-.101.333-.158.025Z"/></svg>
-          JavaScript
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117v-6.038H8.148zm5.087 15.019h-.001c-2.475 0-4.49-2.014-4.49-4.49s2.015-4.49 4.49-4.49h.001c2.475 0 4.49 2.014 4.49 4.49s-2.015 4.49-4.49 4.49zm0-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h.001c1.665 0 3.019-1.354 3.019-3.019s-1.354-3.019-3.02-3.019z"/></svg>
-          Figma / UI
-        </span>
-      </div>
-    </div>
-
-    <!-- Backend -->
-    <div class="mb-6">
-      <div class="cat-label">Backend &amp; Database</div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.642 5.43a.364.364 0 0 1 .014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 0 1-.188.326L9.93 23.949a.316.316 0 0 1-.066.027c-.008.002-.016.008-.024.01a.348.348 0 0 1-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 0 1-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 0 1 .023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.032h.001L5.044.05a.375.375 0 0 1 .378 0L9.93 2.647h.002c.015.008.027.021.04.031.012.009.025.018.035.027l.033.045c.009.01.019.021.024.033.01.019.017.038.024.058.003.012.011.02.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.012.01-.02.015-.033.007-.019.014-.038.024-.057.004-.013.015-.022.023-.033.01-.015.022-.03.033-.045.012-.009.025-.018.037-.027.014-.012.027-.024.041-.032h.001l4.512-2.597a.375.375 0 0 1 .378 0l4.512 2.597c.015.008.028.021.042.031.012.009.025.018.034.027l.033.045c.01.01.02.021.024.033.011.019.017.038.024.058z"/></svg>
-          Laravel
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.605.065-.037.151-.023.218.017l2.256 1.339c.082.045.198.045.275 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.052-.19-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68c-.087.05-.139.146-.139.241v10.15c0 .097.052.19.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.522c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.286c0 1.744-.951 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.943-.922-1.604V6.921c0-.661.352-1.275.922-1.604l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.943.924 1.604v10.15c0 .661-.354 1.275-.924 1.604l-8.794 5.076c-.281.163-.601.247-.925.247z"/></svg>
-          Node.js
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.8068 18.2848L13.5528.7565c-.207-.4382-.639-.7273-1.1286-.7541-.4987-.0268-.9523.2199-1.2012.6353L2.266 15.1271c-.2789.4711-.2558 1.0582.0608 1.5058l4.635 6.7028c.307.4437.8813.6519 1.4085.5064l12.5723-3.5499c.7759-.2201 1.1304-1.0888.7662-1.9874z"/></svg>
-          Prisma ORM
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#4479A1;"><path d="M12 3C7.589 3 4 4.343 4 6v12c0 1.657 3.589 3 8 3s8-1.343 8-3V6c0-1.657-3.589-3-8-3zm0 2c3.866 0 6 1.07 6 1s-2.134 1-6 1-6-1.07-6-1 2.134-1 6-1z"/></svg>
-          MySQL
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#4169E1;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.182c5.421 0 9.818 4.397 9.818 9.818S17.421 21.818 12 21.818 2.182 17.421 2.182 12 6.579 2.182 12 2.182z"/></svg>
-          PostgreSQL
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.386 0v1.683h-1.933a.187.187 0 0 0 0 .373l.014-.184zM5.214 7.965H1.79a.187.187 0 0 0-.188.188v4.395c0 .104.084.188.187.188h3.425c.103 0 .187-.084.187-.188V8.153a.187.187 0 0 0-.188-.188zm5.25 1.49h-.344v-.747a.187.187 0 0 0-.374 0v.747h-.344a.187.187 0 0 0 0 .374h.344v2.802c0 .103.084.187.188.187h.344a.187.187 0 0 0 .187-.188V9.83h.344c.103 0 .187-.084.187-.187a.187.187 0 0 0-.533-.188zm-2.637.187v3.176a.187.187 0 0 0 .374 0V9.643a.187.187 0 0 0-.374 0zm1.343 0v3.176a.187.187 0 0 0 .374 0V9.643a.187.187 0 0 0-.374 0z"/></svg>
-          REST API
-        </span>
-      </div>
-    </div>
-
-    <!-- DevOps -->
-    <div class="mb-6">
-      <div class="cat-label">DevOps &amp; Infrastructure</div>
-      <div class="flex flex-wrap gap-2">
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.609-.405-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
-          Git / GitHub
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.103 0-2 .897-2 2v5c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 9V4h16l.001 5H4zm16 4H4c-1.103 0-2 .897-2 2v5c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zM4 22v-5h16l.001 5H4z"/><circle cx="7" cy="7" r="1"/><circle cx="7" cy="17" r="1"/></svg>
-          VPS Server
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          CI/CD Pipeline
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.374 0v1.683h-1.933a.187.187 0 0 0 0 .373l.014-.184zm-2.954-8.56c-2.69.198-5.117 1.578-6.72 3.729C2.716 8.397 2 10.97 2 13.53c0 4.667 3.791 8.459 8.458 8.459 4.668 0 8.46-3.792 8.46-8.46V6.065a.18.18 0 0 0-.154-.179 15.208 15.208 0 0 0-1.854-.117c-1.008 0-2.01.097-2.927.258z"/></svg>
-          Coolify / Deploy
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15zm4.125 3a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.585.9 22.098 22.098 0 0 1-3.613.307 21.998 21.998 0 0 1-3.303-.215.75.75 0 0 1-.245-.992z"/></svg>
-          SSL / Nginx
-        </span>
-        <span class="chip">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-          Programmatic SEO
-        </span>
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <div>
-      <div class="cat-label">Proficiency Level</div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 32px;">
-        <div class="skill-row">
-          <div class="skill-label"><span>Next.js / React</span><span>92%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill sf-1" data-width="92%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label"><span>Laravel</span><span>88%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill sf-2" data-width="88%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label"><span>UI/UX Design</span><span>85%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill sf-3" data-width="85%"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label"><span>DevOps / VPS</span><span>80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill sf-4" data-width="80%"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ EXPERIENCE ═══════════════ -->
-  <section class="fade-up card mb-6" id="experience" style="transition-delay:0.15s;">
-    <div class="sec-label"><span>// experience.log</span></div>
-
-    <!-- Job 1 -->
-    <div class="flex gap-4 mb-8">
-      <div class="flex flex-col items-center">
-        <div class="tl-dot"></div>
-        <div class="tl-line"></div>
-      </div>
-      <div style="flex:1; padding-bottom:12px;">
-        <div class="flex flex-wrap justify-between items-start gap-2">
-          <div>
-            <h3 style="font-size:15px; font-weight:700; color:white;">Full-Stack Web Developer &amp; Graphic Designer</h3>
-            <p style="font-size:12px; color:var(--accent); font-family:'JetBrains Mono',monospace; margin-top:2px;">Freelance · Self-employed</p>
-          </div>
-          <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--muted); background:var(--surface2); border:1px solid var(--border); padding:3px 12px; border-radius:20px; white-space:nowrap;">2023 – Sekarang</span>
-        </div>
-        <ul style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Membangun aplikasi web skala produksi: <span class="hl-accent">Next.js, Laravel, React, Prisma ORM</span>
-          </li>
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Full deployment pipeline: <span class="hl-accent">VPS → Git → CI/CD → Production</span> dengan konfigurasi server, SSL, dan monitoring
-          </li>
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Menyempurnakan kode AI-generated (v0, Lovable, Cursor) menjadi sistem yang bersih, maintainable, dan scalable
-          </li>
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Mengembangkan identitas visual dan branding untuk klien bisnis (logo, UI/UX, motion design)
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Job 2 -->
-    <div class="flex gap-4">
-      <div class="flex flex-col items-center">
-        <div class="tl-dot" style="background:var(--accent2);box-shadow:0 0 10px var(--accent2);"></div>
-      </div>
-      <div style="flex:1;">
-        <div class="flex flex-wrap justify-between items-start gap-2">
-          <div>
-            <h3 style="font-size:15px; font-weight:700; color:white;">Web Developer &amp; Social Media Specialist</h3>
-            <p style="font-size:12px; color:var(--accent2); font-family:'JetBrains Mono',monospace; margin-top:2px;">Adikarta · Full-time</p>
-          </div>
-          <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--muted); background:var(--surface2); border:1px solid var(--border); padding:3px 12px; border-radius:20px; white-space:nowrap;">2022 – 2023</span>
-        </div>
-        <ul style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Mengembangkan dan memelihara website perusahaan berbasis WordPress dengan optimasi SEO on-page
-          </li>
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Mengelola strategi pemasaran digital untuk bisnis rental motor dan properti di Yogyakarta
-          </li>
-          <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
-            <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Membuat konten visual (foto, video, desain) untuk platform media sosial dan kampanye digital
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ PROJECTS ═══════════════ -->
-  <section class="fade-up card mb-6" id="projects" style="transition-delay:0.2s;">
-    <div class="sec-label"><span>// projects.featured</span></div>
-
-    <div style="display:grid; gap:16px;">
-
-      <!-- ── ON PROGRESS: GreenBestariPark ── -->
-      <div class="proj-card in-progress">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
-              <span style="font-size:15px; font-weight:700; color:white;">GreenBestariPark.co.id</span>
-              <div class="badge badge-progress">
-                <div class="badge-pulse"></div>
-                IN PROGRESS
+      <div class="flex flex-col gap-6" style="gap:28px;">
+        <!-- Top row: photo + info -->
+        <div class="flex gap-6 items-start" style="flex-wrap:wrap;">
+          <!-- Photo -->
+          <div style="position:relative; flex-shrink:0;">
+            <div class="photo-wrap">
+              <img src="profile.jpg" alt="Muhammad Adib Aulia Hanif" id="profile-img"
+                onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';" />
+              <div id="avatar-fallback"
+                style="display:flex; flex-direction:column; align-items:center; gap:4px; padding:10px;">
+                <svg style="width:36px;height:36px;color:var(--muted);" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);">M.A.A
+                  Hanif</span>
               </div>
             </div>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Website Redesign — Full Overhaul &amp; Modernization</p>
-            <a href="http://greenbestaripark.co.id" target="_blank" rel="noopener" class="site-preview">
-              <svg style="width:11px;height:11px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20"/><path d="M2 12h20"/></svg>
-              greenbestaripark.co.id ↗
-            </a>
+            <div class="photo-ring"></div>
           </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent4); background:rgba(251,146,60,0.08); border:1px solid rgba(251,146,60,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:#fbbf24; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.2); padding:2px 8px; border-radius:4px;">Tailwind</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">UI/UX</span>
-          </div>
-        </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Redesign menyeluruh website <span style="color:white; font-weight:500;">Green Bestari Park</span> — taman wisata keluarga di Yogyakarta.
-          Meliputi perombakan total desain visual, peningkatan performa, SEO optimization, sistem reservasi online, 
-          dan modernisasi seluruh UI/UX dengan pendekatan mobile-first yang premium dan modern.
-        </p>
-        <div style="margin-top:14px; padding:12px 14px; background:rgba(251,146,60,0.05); border:1px solid rgba(251,146,60,0.15); border-radius:10px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent4); margin-bottom:8px; letter-spacing:0.1em;">// SCOPE OF WORK</div>
-          <div class="flex flex-wrap gap-2">
-            <span style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">🎨 UI Redesign</span>
-            <span style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">⚡ Performance</span>
-            <span style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">🔍 SEO</span>
-            <span style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">📱 Mobile-First</span>
-            <span style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">🎫 Booking System</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Project 1: homsjogja -->
-      <div class="proj-card">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
-              <a href="https://homsjogja.com" target="_blank" rel="noopener" style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
-                 onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
-                homsjogja.com ↗
-              </a>
-              <div class="badge badge-live"><div class="badge-pulse"></div>LIVE</div>
+          <!-- Info -->
+          <div class="flex-1" style="min-width:200px;">
+            <div
+              style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); margin-bottom:6px; letter-spacing:0.1em;">
+              &lt;full-stack-developer /&gt;
             </div>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Integrated Booking &amp; OTA Sync System</p>
-          </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Laravel</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">MySQL</span>
-          </div>
-        </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Sistem manajemen pemesanan tersinkronisasi real-time dengan OTA global (Airbnb &amp; Booking.com). 
-          Dilengkapi modul keuangan internal: laporan laba-rugi otomatis, cash flow tracking, dan dashboard analytics.
-        </p>
-      </div>
-
-      <!-- Project 2: nginepyogya -->
-      <div class="proj-card">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
-              <a href="https://nginepyogya.com" target="_blank" rel="noopener" style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
-                 onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
-                nginepyogya.com ↗
-              </a>
-              <div class="badge badge-live"><div class="badge-pulse"></div>LIVE</div>
+            <h1
+              style="font-family:'Syne',sans-serif; font-size:clamp(24px,5vw,38px); font-weight:800; color:white; line-height:1.05; letter-spacing:-0.03em;"
+              class="typing" id="name-heading">
+              Muhammad Adib Aulia Hanif
+            </h1>
+            <p
+              style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent2); margin-top:10px; letter-spacing:0.02em;">
+              Full-Stack Web Developer &amp; Creative Technologist
+            </p>
+            <p style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-top:4px;">
+              // Next.js · Laravel · React · Node.js · DevOps
+            </p>
+            <div style="margin-top:12px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+              <div class="avail-badge">
+                <div class="avail-dot"></div>
+                Available for Projects
+              </div>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted);">📍 Yogyakarta,
+                Indonesia</span>
             </div>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Creator &amp; Property Marketplace</p>
-          </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Prisma</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">TikTok API</span>
           </div>
         </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Platform penghubung pemilik properti dengan konten kreator. Integrasi TikTok API memungkinkan kreator 
-          menampilkan portofolio video secara otomatis di profil platform mereka.
-        </p>
+
+        <!-- Stats row -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Years Exp.</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Clients</div>
+          </div>
+        </div>
+
+        <!-- Contact buttons -->
+        <div id="contact" class="flex flex-wrap gap-2">
+          <a href="mailto:adwk.project@gmail.com" class="contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            adwk.project@gmail.com
+          </a>
+          <a href="https://wa.me/6282332357775" target="_blank" rel="noopener" class="contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+            </svg>
+            +62 823-3235-7775
+          </a>
+          <a href="https://github.com/Muh-Adib" target="_blank" rel="noopener" class="contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
+            </svg>
+            github.com/Muh-Adib
+          </a>
+          <a href="https://linxit.id" target="_blank" rel="noopener" class="contact-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20" />
+              <path d="M2 12h20" />
+            </svg>
+            linxit.id
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section class="fade-up card mb-6" style="transition-delay:0.05s;">
+      <div class="sec-label"><span>// about.md</span></div>
+      <p style="font-size:14px; line-height:2; color:var(--muted2);">
+        Full-Stack Web Developer lulusan <span class="text-white" style="font-weight:600;">Sistem Informasi AMIKOM
+          Yogyakarta (2023)</span>,
+        berpengalaman membangun infrastruktur digital skala produksi — dari sistem OTA real-time,
+        platform marketplace kreator, hingga Programmatic SEO. Mahir dalam full deployment stack:
+        <span class="hl-accent">VPS → Git → CI/CD → Production</span>.
+      </p>
+      <p style="font-size:14px; line-height:2; color:var(--muted2); margin-top:14px;">
+        Memiliki kemampuan unik menyempurnakan kode AI-generated menjadi sistem yang bersih, maintainable, dan scalable
+        —
+        didukung latar belakang <span class="hl-accent2">desain visual</span> yang kuat. Passionate tentang membangun
+        produk digital yang tidak hanya
+        berfungsi dengan baik, tetapi juga indah secara visual.
+      </p>
+    </section>
+
+    <!-- ═══════════════ TECH STACK ═══════════════ -->
+    <section class="fade-up card mb-6" id="stack" style="transition-delay:0.1s;">
+      <div class="sec-label"><span>// tech.stack</span></div>
+
+      <!-- Frontend -->
+      <div class="mb-6">
+        <div class="cat-label">Frontend</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z" />
+            </svg>
+            Next.js
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.096-.278zm-.187 11.44c-.42.157-.87.314-1.35.458.142-.573.256-1.162.345-1.768.524.174 1.016.36 1.47.562-.152.251-.307.503-.465.748zm-3.66 2.56c-.285.28-.566.54-.842.78-.276-.24-.556-.5-.841-.78a27.04 27.04 0 0 1-.867-1.002c.28.017.563.027.852.027.285 0 .57-.01.853-.027a27.04 27.04 0 0 1-.156.002zm-6.41-3.308c-.48-.144-.93-.3-1.35-.458a23.107 23.107 0 0 1-.464-.748c.453-.2.944-.387 1.47-.562.088.607.2 1.195.344 1.768zm2.64-8.19c.28-.274.56-.534.841-.776.281.242.562.502.841.776a27.2 27.2 0 0 1 .155.002c-.283.016-.567.024-.856.024-.289 0-.573-.008-.858-.024.052-.001.077-.002.077-.002z" />
+            </svg>
+            React.js
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
+            </svg>
+            TypeScript
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+            </svg>
+            Tailwind CSS
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm.072 4.79l.003-.001h-.001l.002.001.005.004h-.001l.006.008.003.004.007.007.003.006.007.008.002.005.007.009.003.007.006.011.004.007.006.013.003.007.006.014.003.01.005.015.003.01.004.018.002.01.003.02.002.011.002.022v.01l.001.026.001.012v.028l-.001.034v.014l-.002.037-.002.014-.003.04-.002.014-.004.041-.003.014-.005.043-.003.013-.006.044-.004.014-.007.046-.004.014-.008.048-.005.015-.009.05-.005.014-.01.052-.006.015-.011.054-.006.014-.012.057-.007.013-.013.059-.008.014-.013.061-.009.014-.015.063-.009.014-.015.066-.01.015-.017.068-.01.014-.017.07-.012.015-.018.073-.012.014-.019.075-.013.015-.02.078-.014.015-.021.08-.014.015-.022.083-.016.015-.023.086-.016.014-.024.088-.018.015-.025.091-.018.015-.026.094-.019.015-.027.096-.02.015-.028.1-.022.016-.03.102-.022.015-.03.105-.024.016-.031.108-.024.015-.033.11-.026.016-.033.114-.027.015-.035.116-.027.016-.036.12-.029.015-.037.122-.03.016-.038.125-.031.015-.04.128-.032.015-.04.131-.034.016-.042.134-.034.015-.043.137-.036.016-.044.14-.037.016-.045.142-.038.016-.046.145-.04.016-.047.148-.04.016-.049.15-.042.017-.05.154-.043.016-.05.157-.044.016-.052.16-.046.017-.053.163-.047.016-.053.165-.049.017-.055.169-.05.016-.055.171-.051.017-.057.175-.052.017-.058.177-.054.017-.058.18-.056.016-.06.183-.057.017-.06.186-.059.017-.062.19-.06.016-.062.191-.062.018-.063.195-.064.017-.064.198-.065.018-.065.2-.067.018-.066.204-.069.017-.067.206-.07.018-.068.21-.072.018-.069.213-.073.018-.07.216-.076.018-.07.218-.077.018-.072.222-.079.018-.072.225-.081.019-.074.228-.083.018-.074.231-.085.019-.075.235-.087.019-.076.237-.089.019-.077.241-.091.019-.078.244-.093.019-.079.247-.095.02-.08.251-.098.02-.08.253-.1.02-.082.257-.102.02-.082.26-.104.02-.083.263-.107.021-.084.267-.109.02-.085.27-.111.021-.086.273-.114.021-.086.277-.116.021-.088.28-.118.022-.088.284-.121.021-.09.287-.124.022-.09.29-.126.022-.091.294-.128.022-.092.297-.131.023-.093.3-.134.023-.093.304-.136.023-.095.308-.139.023-.095.311-.142.024-.097.314-.144.024-.097.318-.147.024-.098.322-.15.025-.099.325-.152.025-.1.328-.155.025-.101.333-.158.025Z" />
+            </svg>
+            JavaScript
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117v-6.038H8.148zm5.087 15.019h-.001c-2.475 0-4.49-2.014-4.49-4.49s2.015-4.49 4.49-4.49h.001c2.475 0 4.49 2.014 4.49 4.49s-2.015 4.49-4.49 4.49zm0-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h.001c1.665 0 3.019-1.354 3.019-3.019s-1.354-3.019-3.02-3.019z" />
+            </svg>
+            Figma / UI
+          </span>
+        </div>
       </div>
 
-      <!-- Project 3: jtcargomitra -->
-      <div class="proj-card">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
-              <a href="https://jtcargomitra.com" target="_blank" rel="noopener" style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
-                 onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
-                jtcargomitra.com ↗
-              </a>
-              <div class="badge badge-live"><div class="badge-pulse"></div>LIVE</div>
+      <!-- Backend -->
+      <div class="mb-6">
+        <div class="cat-label">Backend &amp; Database</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.642 5.43a.364.364 0 0 1 .014.1v5.149c0 .135-.073.26-.189.326l-4.323 2.49v4.934a.378.378 0 0 1-.188.326L9.93 23.949a.316.316 0 0 1-.066.027c-.008.002-.016.008-.024.01a.348.348 0 0 1-.192 0c-.011-.002-.02-.008-.03-.012-.02-.008-.042-.014-.062-.025L.533 18.755a.376.376 0 0 1-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.02.014-.032a.369.369 0 0 1 .023-.058c.004-.013.015-.022.023-.033l.033-.045c.012-.01.025-.018.037-.027.014-.012.027-.024.041-.032h.001L5.044.05a.375.375 0 0 1 .378 0L9.93 2.647h.002c.015.008.027.021.04.031.012.009.025.018.035.027l.033.045c.009.01.019.021.024.033.01.019.017.038.024.058.003.012.011.02.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.004-.066.013-.098.003-.012.01-.02.015-.033.007-.019.014-.038.024-.057.004-.013.015-.022.023-.033.01-.015.022-.03.033-.045.012-.009.025-.018.037-.027.014-.012.027-.024.041-.032h.001l4.512-2.597a.375.375 0 0 1 .378 0l4.512 2.597c.015.008.028.021.042.031.012.009.025.018.034.027l.033.045c.01.01.02.021.024.033.011.019.017.038.024.058z" />
+            </svg>
+            Laravel
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.605.065-.037.151-.023.218.017l2.256 1.339c.082.045.198.045.275 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.052-.19-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68c-.087.05-.139.146-.139.241v10.15c0 .097.052.19.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.522c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.286c0 1.744-.951 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.943-.922-1.604V6.921c0-.661.352-1.275.922-1.604l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.943.924 1.604v10.15c0 .661-.354 1.275-.924 1.604l-8.794 5.076c-.281.163-.601.247-.925.247z" />
+            </svg>
+            Node.js
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M21.8068 18.2848L13.5528.7565c-.207-.4382-.639-.7273-1.1286-.7541-.4987-.0268-.9523.2199-1.2012.6353L2.266 15.1271c-.2789.4711-.2558 1.0582.0608 1.5058l4.635 6.7028c.307.4437.8813.6519 1.4085.5064l12.5723-3.5499c.7759-.2201 1.1304-1.0888.7662-1.9874z" />
+            </svg>
+            Prisma ORM
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color:#4479A1;">
+              <path
+                d="M12 3C7.589 3 4 4.343 4 6v12c0 1.657 3.589 3 8 3s8-1.343 8-3V6c0-1.657-3.589-3-8-3zm0 2c3.866 0 6 1.07 6 1s-2.134 1-6 1-6-1.07-6-1 2.134-1 6-1z" />
+            </svg>
+            MySQL
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color:#4169E1;">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.182c5.421 0 9.818 4.397 9.818 9.818S17.421 21.818 12 21.818 2.182 17.421 2.182 12 6.579 2.182 12 2.182z" />
+            </svg>
+            PostgreSQL
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.386 0v1.683h-1.933a.187.187 0 0 0 0 .373l.014-.184zM5.214 7.965H1.79a.187.187 0 0 0-.188.188v4.395c0 .104.084.188.187.188h3.425c.103 0 .187-.084.187-.188V8.153a.187.187 0 0 0-.188-.188zm5.25 1.49h-.344v-.747a.187.187 0 0 0-.374 0v.747h-.344a.187.187 0 0 0 0 .374h.344v2.802c0 .103.084.187.188.187h.344a.187.187 0 0 0 .187-.188V9.83h.344c.103 0 .187-.084.187-.187a.187.187 0 0 0-.533-.188zm-2.637.187v3.176a.187.187 0 0 0 .374 0V9.643a.187.187 0 0 0-.374 0zm1.343 0v3.176a.187.187 0 0 0 .374 0V9.643a.187.187 0 0 0-.374 0z" />
+            </svg>
+            REST API
+          </span>
+        </div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="mb-6">
+        <div class="cat-label">DevOps &amp; Infrastructure</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.609-.405-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187" />
+            </svg>
+            Git / GitHub
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20 2H4c-1.103 0-2 .897-2 2v5c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 9V4h16l.001 5H4zm16 4H4c-1.103 0-2 .897-2 2v5c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zM4 22v-5h16l.001 5H4z" />
+              <circle cx="7" cy="7" r="1" />
+              <circle cx="7" cy="17" r="1" />
+            </svg>
+            VPS Server
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+            CI/CD Pipeline
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.374 0v1.683h-1.933a.187.187 0 0 0 0 .373l.014-.184zm-2.954-8.56c-2.69.198-5.117 1.578-6.72 3.729C2.716 8.397 2 10.97 2 13.53c0 4.667 3.791 8.459 8.458 8.459 4.668 0 8.46-3.792 8.46-8.46V6.065a.18.18 0 0 0-.154-.179 15.208 15.208 0 0 0-1.854-.117c-1.008 0-2.01.097-2.927.258z" />
+            </svg>
+            Coolify / Deploy
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15zm4.125 3a2.25 2.25 0 1 1 0 4.5 2.25 2.25 0 0 1 0-4.5zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.585.9 22.098 22.098 0 0 1-3.613.307 21.998 21.998 0 0 1-3.303-.215.75.75 0 0 1-.245-.992z" />
+            </svg>
+            SSL / Nginx
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+            </svg>
+            Programmatic SEO
+          </span>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div>
+        <div class="cat-label">Proficiency Level</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 32px;">
+          <div class="skill-row">
+            <div class="skill-label"><span>Next.js / React</span><span>92%</span></div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill sf-1" data-width="92%"></div>
             </div>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Programmatic SEO Growth Engineering</p>
           </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Prisma</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">PostgreSQL</span>
-          </div>
-        </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Implementasi Programmatic SEO untuk generate ratusan landing page dinamis secara otomatis. 
-          Meningkatkan trafik organik secara signifikan untuk kata kunci jasa cargo kompetitif.
-        </p>
-      </div>
-
-      <!-- Project 4: linxit -->
-      <div class="proj-card">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
-              <a href="https://linxit.id" target="_blank" rel="noopener" style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
-                 onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
-                linxit.id ↗
-              </a>
-              <div class="badge badge-live"><div class="badge-pulse"></div>LIVE</div>
+          <div class="skill-row">
+            <div class="skill-label"><span>Laravel</span><span>88%</span></div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill sf-2" data-width="88%"></div>
             </div>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Agentic AI Chatbot Platform</p>
           </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Gemini API</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">RAG</span>
+          <div class="skill-row">
+            <div class="skill-label"><span>UI/UX Design</span><span>85%</span></div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill sf-3" data-width="85%"></div>
+            </div>
           </div>
-        </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Platform AI chatbot modular dengan arsitektur agentic. Mendukung multiple business domain, 
-          brand-voice templates, dan integrasi RAG untuk knowledge base bisnis yang akurat.
-        </p>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="proj-card">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <span style="font-size:15px; font-weight:700; color:white;">Satelqu</span>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Corporate Attendance System (2022)</p>
-          </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Laravel</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">MySQL</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">GPS API</span>
+          <div class="skill-row">
+            <div class="skill-label"><span>DevOps / VPS</span><span>80%</span></div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill sf-4" data-width="80%"></div>
+            </div>
           </div>
         </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Sistem absensi perusahaan transportasi dengan verifikasi foto real-time, pelacakan lokasi berbasis GPS, 
-          dan pencatatan jam kerja otomatis.
-        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+    <section class="fade-up card mb-6" id="experience" style="transition-delay:0.15s;">
+      <div class="sec-label"><span>// experience.log</span></div>
+
+      <!-- Job 1 -->
+      <div class="flex gap-4 mb-8">
+        <div class="flex flex-col items-center">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div style="flex:1; padding-bottom:12px;">
+          <div class="flex flex-wrap justify-between items-start gap-2">
+            <div>
+              <h3 style="font-size:15px; font-weight:700; color:white;">Full-Stack Web Developer &amp; Graphic Designer
+              </h3>
+              <p style="font-size:12px; color:var(--accent); font-family:'JetBrains Mono',monospace; margin-top:2px;">
+                Freelance · Self-employed</p>
+            </div>
+            <span
+              style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--muted); background:var(--surface2); border:1px solid var(--border); padding:3px 12px; border-radius:20px; white-space:nowrap;">2023
+              – Sekarang</span>
+          </div>
+          <ul style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Membangun aplikasi web skala produksi: <span class="hl-accent">Next.js, Laravel, React, Prisma ORM</span>
+            </li>
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Full deployment pipeline: <span class="hl-accent">VPS → Git → CI/CD → Production</span> dengan konfigurasi
+              server, SSL, dan monitoring
+            </li>
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Menyempurnakan kode AI-generated (v0, Lovable, Cursor) menjadi sistem yang bersih, maintainable, dan
+              scalable
+            </li>
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Mengembangkan identitas visual dan branding untuk klien bisnis (logo, UI/UX, motion design)
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Project 6: Visual Branding -->
-      <div class="proj-card">
-        <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-          <div>
-            <span style="font-size:15px; font-weight:700; color:white;">Visual Branding Projects</span>
-            <p style="font-size:12px; color:var(--muted); margin-top:2px;">Dreamstorey · 500kitchen · Saladsecret · Weft Coffee · Sasuka</p>
+      <!-- Job 2 -->
+      <div class="flex gap-4">
+        <div class="flex flex-col items-center">
+          <div class="tl-dot" style="background:var(--accent2);box-shadow:0 0 10px var(--accent2);"></div>
+        </div>
+        <div style="flex:1;">
+          <div class="flex flex-wrap justify-between items-start gap-2">
+            <div>
+              <h3 style="font-size:15px; font-weight:700; color:white;">Web Developer &amp; Social Media Specialist</h3>
+              <p style="font-size:12px; color:var(--accent2); font-family:'JetBrains Mono',monospace; margin-top:2px;">
+                Adikarta · Full-time</p>
+            </div>
+            <span
+              style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--muted); background:var(--surface2); border:1px solid var(--border); padding:3px 12px; border-radius:20px; white-space:nowrap;">2022
+              – 2023</span>
           </div>
-          <div class="flex gap-1 flex-wrap">
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Figma</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Branding</span>
-            <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">UI/UX</span>
+          <ul style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Mengembangkan dan memelihara website perusahaan berbasis WordPress dengan optimasi SEO on-page
+            </li>
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Mengelola strategi pemasaran digital untuk bisnis rental motor dan properti di Yogyakarta
+            </li>
+            <li class="flex gap-3 items-start" style="font-size:13px; color:var(--muted2); line-height:1.7;">
+              <svg style="width:14px;height:14px;color:var(--accent3);flex-shrink:0;margin-top:4px;" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Membuat konten visual (foto, video, desain) untuk platform media sosial dan kampanye digital
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PROJECTS ═══════════════ -->
+    <section class="fade-up card mb-6" id="projects" style="transition-delay:0.2s;">
+      <div class="sec-label"><span>// projects.featured</span></div>
+
+      <div style="display:grid; gap:16px;">
+
+        <!-- ── ON PROGRESS: GreenBestariPark ── -->
+        <div class="proj-card in-progress">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
+                <span style="font-size:15px; font-weight:700; color:white;">GreenBestariPark.co.id</span>
+                <div class="badge badge-progress">
+                  <div class="badge-pulse"></div>
+                  IN PROGRESS
+                </div>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Website Redesign — Full Overhaul &amp;
+                Modernization</p>
+              <a href="http://greenbestaripark.co.id" target="_blank" rel="noopener" class="site-preview">
+                <svg style="width:11px;height:11px;" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20" />
+                  <path d="M2 12h20" />
+                </svg>
+                greenbestaripark.co.id ↗
+              </a>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent4); background:rgba(251,146,60,0.08); border:1px solid rgba(251,146,60,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:#fbbf24; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.2); padding:2px 8px; border-radius:4px;">Tailwind</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">UI/UX</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Redesign menyeluruh website <span style="color:white; font-weight:500;">Green Bestari Park</span> — taman
+            wisata keluarga di Yogyakarta.
+            Meliputi perombakan total desain visual, peningkatan performa, SEO optimization, sistem reservasi online,
+            dan modernisasi seluruh UI/UX dengan pendekatan mobile-first yang premium dan modern.
+          </p>
+          <div
+            style="margin-top:14px; padding:12px 14px; background:rgba(251,146,60,0.05); border:1px solid rgba(251,146,60,0.15); border-radius:10px;">
+            <div
+              style="font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--accent4); margin-bottom:8px; letter-spacing:0.1em;">
+              // SCOPE OF WORK</div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">🎨
+                UI Redesign</span>
+              <span
+                style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">⚡
+                Performance</span>
+              <span
+                style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">🔍
+                SEO</span>
+              <span
+                style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">📱
+                Mobile-First</span>
+              <span
+                style="font-size:11px; color:var(--muted2); background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:3px 10px; font-family:'JetBrains Mono',monospace;">🎫
+                Booking System</span>
+            </div>
           </div>
         </div>
-        <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
-          Eksekusi identitas merek, logo, animasi, dan UI/UX untuk berbagai klien F&amp;B dan lifestyle brand di Yogyakarta.
-        </p>
+
+        <!-- Project 1: homsjogja -->
+        <div class="proj-card">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
+                <a href="https://homsjogja.com" target="_blank" rel="noopener"
+                  style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
+                  onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
+                  homsjogja.com ↗
+                </a>
+                <div class="badge badge-live">
+                  <div class="badge-pulse"></div>LIVE
+                </div>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Integrated Booking &amp; OTA Sync System
+              </p>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Laravel</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">MySQL</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Sistem manajemen pemesanan tersinkronisasi real-time dengan OTA global (Airbnb &amp; Booking.com).
+            Dilengkapi modul keuangan internal: laporan laba-rugi otomatis, cash flow tracking, dan dashboard analytics.
+          </p>
+        </div>
+
+        <!-- Project 2: nginepyogya -->
+        <div class="proj-card">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
+                <a href="https://nginepyogya.com" target="_blank" rel="noopener"
+                  style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
+                  onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
+                  nginepyogya.com ↗
+                </a>
+                <div class="badge badge-live">
+                  <div class="badge-pulse"></div>LIVE
+                </div>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Creator &amp; Property Marketplace</p>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Prisma</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">TikTok
+                API</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Platform penghubung pemilik properti dengan konten kreator. Integrasi TikTok API memungkinkan kreator
+            menampilkan portofolio video secara otomatis di profil platform mereka.
+          </p>
+        </div>
+
+        <!-- Project 3: jtcargomitra -->
+        <div class="proj-card">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
+                <a href="https://jtcargomitra.com" target="_blank" rel="noopener"
+                  style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
+                  onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
+                  jtcargomitra.com ↗
+                </a>
+                <div class="badge badge-live">
+                  <div class="badge-pulse"></div>LIVE
+                </div>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Programmatic SEO Growth Engineering</p>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Prisma</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">PostgreSQL</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Implementasi Programmatic SEO untuk generate ratusan landing page dinamis secara otomatis.
+            Meningkatkan trafik organik secara signifikan untuk kata kunci jasa cargo kompetitif.
+          </p>
+        </div>
+
+        <!-- Project 4: linxit -->
+        <div class="proj-card">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <div class="flex items-center gap-2 mb-1" style="flex-wrap:wrap;">
+                <a href="https://linxit.id" target="_blank" rel="noopener"
+                  style="font-size:15px; font-weight:700; color:white; text-decoration:none; transition:color 0.2s;"
+                  onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='white'">
+                  linxit.id ↗
+                </a>
+                <div class="badge badge-live">
+                  <div class="badge-pulse"></div>LIVE
+                </div>
+              </div>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Agentic AI Chatbot Platform</p>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Next.js</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Gemini
+                API</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">RAG</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Platform AI chatbot modular dengan arsitektur agentic. Mendukung multiple business domain,
+            brand-voice templates, dan integrasi RAG untuk knowledge base bisnis yang akurat.
+          </p>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="proj-card">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <span style="font-size:15px; font-weight:700; color:white;">Satelqu</span>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Corporate Attendance System (2022)</p>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Laravel</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">MySQL</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">GPS
+                API</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Sistem absensi perusahaan transportasi dengan verifikasi foto real-time, pelacakan lokasi berbasis GPS,
+            dan pencatatan jam kerja otomatis.
+          </p>
+        </div>
+
+        <!-- Project 6: Visual Branding -->
+        <div class="proj-card">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <div>
+              <span style="font-size:15px; font-weight:700; color:white;">Visual Branding Projects</span>
+              <p style="font-size:12px; color:var(--muted); margin-top:2px;">Dreamstorey · 500kitchen · Saladsecret ·
+                Weft Coffee · Sasuka</p>
+            </div>
+            <div class="flex gap-1 flex-wrap">
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent); background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.2); padding:2px 8px; border-radius:4px;">Figma</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent2); background:rgba(129,140,248,0.08); border:1px solid rgba(129,140,248,0.2); padding:2px 8px; border-radius:4px;">Branding</span>
+              <span
+                style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--accent3); background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.2); padding:2px 8px; border-radius:4px;">UI/UX</span>
+            </div>
+          </div>
+          <p style="font-size:13px; color:var(--muted2); line-height:1.8;">
+            Eksekusi identitas merek, logo, animasi, dan UI/UX untuk berbagai klien F&amp;B dan lifestyle brand di
+            Yogyakarta.
+          </p>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ═══════════════ EDUCATION ═══════════════ -->
+    <section class="fade-up card mb-6" style="transition-delay:0.25s;">
+      <div class="sec-label"><span>// education.json</span></div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted2); line-height:2.2;">
+        <span style="color:var(--border3);">{</span><br>
+        &nbsp;&nbsp;<span style="color:var(--accent2);">"degree"</span><span style="color:var(--border3);">:</span>
+        <span style="color:var(--accent3);">"S1 Sistem Informasi"</span><span style="color:var(--border3);">,</span><br>
+        &nbsp;&nbsp;<span style="color:var(--accent2);">"institution"</span><span style="color:var(--border3);">:</span>
+        <span style="color:var(--accent3);">"Universitas AMIKOM Yogyakarta"</span><span
+          style="color:var(--border3);">,</span><br>
+        &nbsp;&nbsp;<span style="color:var(--accent2);">"graduated"</span><span style="color:var(--border3);">:</span>
+        <span style="color:#f59e0b;">"2023"</span><span style="color:var(--border3);">,</span><br>
+        &nbsp;&nbsp;<span style="color:var(--accent2);">"focus"</span><span style="color:var(--border3);">:</span> <span
+          style="color:var(--accent3);">"Web Development &amp; Machine Learning"</span><span
+          style="color:var(--border3);">,</span><br>
+        &nbsp;&nbsp;<span style="color:var(--accent2);">"thesis"</span><span style="color:var(--border3);">:</span>
+        <span style="color:var(--accent3);">"Implementation of LSTM, GRU, and Bi-LSTM for Stock Price
+          Prediction"</span><br>
+        <span style="color:var(--border3);">}</span>
+      </div>
+    </section>
 
-  <!-- ═══════════════ EDUCATION ═══════════════ -->
-  <section class="fade-up card mb-6" style="transition-delay:0.25s;">
-    <div class="sec-label"><span>// education.json</span></div>
-    <div style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted2); line-height:2.2;">
-      <span style="color:var(--border3);">{</span><br>
-      &nbsp;&nbsp;<span style="color:var(--accent2);">"degree"</span><span style="color:var(--border3);">:</span> <span style="color:var(--accent3);">"S1 Sistem Informasi"</span><span style="color:var(--border3);">,</span><br>
-      &nbsp;&nbsp;<span style="color:var(--accent2);">"institution"</span><span style="color:var(--border3);">:</span> <span style="color:var(--accent3);">"Universitas AMIKOM Yogyakarta"</span><span style="color:var(--border3);">,</span><br>
-      &nbsp;&nbsp;<span style="color:var(--accent2);">"graduated"</span><span style="color:var(--border3);">:</span> <span style="color:#f59e0b;">"2023"</span><span style="color:var(--border3);">,</span><br>
-      &nbsp;&nbsp;<span style="color:var(--accent2);">"focus"</span><span style="color:var(--border3);">:</span> <span style="color:var(--accent3);">"Web Development &amp; Information Systems"</span><span style="color:var(--border3);">,</span><br>
-      &nbsp;&nbsp;<span style="color:var(--accent2);">"thesis"</span><span style="color:var(--border3);">:</span> <span style="color:var(--accent3);">"Sistem Informasi Berbasis Web"</span><br>
-      <span style="color:var(--border3);">}</span>
-    </div>
-  </section>
+    <!-- ═══════════════ CTA / HIRE ═══════════════ -->
+    <section class="fade-up card" style="transition-delay:0.3s; text-align:center; padding:48px 36px;">
+      <div class="sec-label" style="justify-content:center;"><span>// open.to.work</span></div>
+      <h2
+        style="font-family:'Syne',sans-serif; font-size:clamp(22px,4vw,32px); font-weight:800; color:white; letter-spacing:-0.02em; margin-bottom:14px;">
+        Let's Build Something <span
+          style="background:linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Amazing</span>
+      </h2>
+      <p style="font-size:14px; color:var(--muted2); max-width:500px; margin:0 auto 28px; line-height:1.8;">
+        Terbuka untuk proyek freelance, kolaborasi, dan peluang menarik lainnya. Hubungi saya!
+      </p>
+      <div class="flex flex-wrap gap-3" style="justify-content:center;">
+        <a href="mailto:adwk.project@gmail.com" class="contact-btn"
+          style="background:linear-gradient(135deg, rgba(56,189,248,0.15), rgba(129,140,248,0.15)); border-color:rgba(56,189,248,0.4); color:var(--accent); font-size:13px; padding:12px 24px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          Email Sekarang
+        </a>
+        <a href="https://wa.me/6282332357775" target="_blank" rel="noopener" class="contact-btn"
+          style="font-size:13px; padding:12px 24px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+          </svg>
+          WhatsApp
+        </a>
+        <a href="https://github.com/Muh-Adib" target="_blank" rel="noopener" class="contact-btn"
+          style="font-size:13px; padding:12px 24px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </section>
 
-  <!-- ═══════════════ CTA / HIRE ═══════════════ -->
-  <section class="fade-up card" style="transition-delay:0.3s; text-align:center; padding:48px 36px;">
-    <div class="sec-label" style="justify-content:center;"><span>// open.to.work</span></div>
-    <h2 style="font-family:'Syne',sans-serif; font-size:clamp(22px,4vw,32px); font-weight:800; color:white; letter-spacing:-0.02em; margin-bottom:14px;">
-      Let's Build Something <span style="background:linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Amazing</span>
-    </h2>
-    <p style="font-size:14px; color:var(--muted2); max-width:500px; margin:0 auto 28px; line-height:1.8;">
-      Terbuka untuk proyekfreel ance, kolaborasi, dan peluang menarik lainnya. Hubungi saya!
-    </p>
-    <div class="flex flex-wrap gap-3" style="justify-content:center;">
-      <a href="mailto:adwk.project@gmail.com" class="contact-btn" style="background:linear-gradient(135deg, rgba(56,189,248,0.15), rgba(129,140,248,0.15)); border-color:rgba(56,189,248,0.4); color:var(--accent); font-size:13px; padding:12px 24px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email Sekarang
-      </a>
-      <a href="https://wa.me/6282332357775" target="_blank" rel="noopener" class="contact-btn" style="font-size:13px; padding:12px 24px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-        WhatsApp
-      </a>
-      <a href="https://github.com/Muh-Adib" target="_blank" rel="noopener" class="contact-btn" style="font-size:13px; padding:12px 24px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
-        GitHub
-      </a>
-    </div>
-  </section>
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span style="color:var(--accent);">~</span>
+      Muhammad Adib Aulia Hanif · 2026 ·
+      <a href="https://github.com/Muh-Adib" target="_blank" rel="noopener">github.com/Muh-Adib</a>
+      <span style="color:var(--accent);"> ~</span>
+    </footer>
 
-  <!-- ── FOOTER ── -->
-  <footer>
-    <span style="color:var(--accent);">~</span> 
-    Muhammad Adib Aulia Hanif · 2025 · 
-    <a href="https://github.com/Muh-Adib" target="_blank" rel="noopener">github.com/Muh-Adib</a>
-    <span style="color:var(--accent);"> ~</span>
-  </footer>
+  </div>
 
-</div>
-
-<script>
-  // ── cursor glow
-  const glow = document.getElementById('cursor-glow');
-  document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
-  });
-  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { glow.style.opacity = '1'; });
-
-  // ── scroll progress bar
-  const scrollBar = document.getElementById('scroll-bar');
-  document.addEventListener('scroll', () => {
-    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    scrollBar.style.width = scrolled + '%';
-  });
-
-  // ── intersection observer for fade-up
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        // animate skill bars when visible
-        if (e.target.querySelector('.skill-bar-fill')) {
-          setTimeout(() => {
-            e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-              bar.style.width = bar.dataset.width;
-            });
-          }, 200);
-        }
-        observer.unobserve(e.target);
-      }
+  <script>
+    // ── cursor glow
+    const glow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
     });
-  }, { threshold: 0.08 });
+    document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { glow.style.opacity = '1'; });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // ── typing animation for name
-  const nameEl = document.getElementById('name-heading');
-  const fullName = nameEl.textContent.trim();
-  nameEl.textContent = '';
-  nameEl.classList.add('typing');
-  let idx = 0;
-  const typeInterval = setInterval(() => {
-    nameEl.textContent += fullName[idx++];
-    if (idx === fullName.length) {
-      clearInterval(typeInterval);
-      setTimeout(() => nameEl.classList.remove('typing'), 1500);
-    }
-  }, 35);
-
-  // ── chip hover spring
-  document.querySelectorAll('.chip').forEach(chip => {
-    chip.addEventListener('mouseenter', () => {
-      chip.style.transform = 'translateY(-3px) scale(1.05)';
+    // ── scroll progress bar
+    const scrollBar = document.getElementById('scroll-bar');
+    document.addEventListener('scroll', () => {
+      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      scrollBar.style.width = scrolled + '%';
     });
-    chip.addEventListener('mouseleave', () => {
-      chip.style.transform = '';
-    });
-  });
 
-  // ── smooth nav active state
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id], header[id], div[id]');
-
-  const navObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = '';
-          link.style.background = '';
-          if (link.getAttribute('href') === '#' + e.target.id) {
-            link.style.color = 'var(--accent)';
-            link.style.background = 'rgba(56,189,248,0.08)';
+    // ── intersection observer for fade-up
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // animate skill bars when visible
+          if (e.target.querySelector('.skill-bar-fill')) {
+            setTimeout(() => {
+              e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                bar.style.width = bar.dataset.width;
+              });
+            }, 200);
           }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
-  document.querySelectorAll('[id]').forEach(el => navObserver.observe(el));
-</script>
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── typing animation for name
+    const nameEl = document.getElementById('name-heading');
+    const fullName = nameEl.textContent.trim();
+    nameEl.textContent = '';
+    nameEl.classList.add('typing');
+    let idx = 0;
+    const typeInterval = setInterval(() => {
+      nameEl.textContent += fullName[idx++];
+      if (idx === fullName.length) {
+        clearInterval(typeInterval);
+        setTimeout(() => nameEl.classList.remove('typing'), 1500);
+      }
+    }, 35);
+
+    // ── chip hover spring
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('mouseenter', () => {
+        chip.style.transform = 'translateY(-3px) scale(1.05)';
+      });
+      chip.addEventListener('mouseleave', () => {
+        chip.style.transform = '';
+      });
+    });
+
+    // ── smooth nav active state
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], header[id], div[id]');
+
+    const navObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = '';
+            link.style.background = '';
+            if (link.getAttribute('href') === '#' + e.target.id) {
+              link.style.color = 'var(--accent)';
+              link.style.background = 'rgba(56,189,248,0.08)';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('[id]').forEach(el => navObserver.observe(el));
+  </script>
 
 </body>
+
 </html>
